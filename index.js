@@ -13,6 +13,9 @@ const server = app.listen(app.get('port'),  () => {
     console.log('server on port', app.get('port'));
 });
 
+//Function
+
+
 //create socket
 const socket = require('socket.io');
 const io = socket(server);
@@ -20,6 +23,7 @@ const io = socket(server);
 //connection to websocket
 io.on('connection', (socket) => {
     console.log('Connected', socket.id);
+    console.log(socket.handshake.auth);
 
     socket.on('user_message', (data) => {
         io.sockets.emit('chat_message', data);
@@ -28,4 +32,7 @@ io.on('connection', (socket) => {
     socket.on('user_typing', (data) => {
         socket.broadcast.emit('typing', data);
     })
+
+    socket.on('disconnect', () => {console.log(socket.id + " disconnected")});
 });
+

@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Socket.io</title>
+    <title>Lithium Server Alpha</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,19 @@
         <input type="text" id="username" placeholder="Username">
         <input type="text" id="message" placeholder="Message...">
         <button id="send">Send!</button>
+
+        <div class="connection-container">
+            <div id="ids"></div>
+            <label for="id">ID:</label>
+            <input type="text" id="UUID">
+            <div>
+                <button id="connect">Connect!</button>
+                <button id="disconnect">Disconnect!</button>
+            </div>
+        </div>
     </div>
+
+    
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
